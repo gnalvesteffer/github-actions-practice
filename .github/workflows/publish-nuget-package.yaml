@@ -16,13 +16,13 @@ jobs:
     - name: Set up .NET SDK
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.x'  # Adjust the .NET SDK version
+        dotnet-version: '6.x'
 
-    - name: Restore Dependencies
-      run: dotnet restore ./src/GithubActionsPractice/ExampleClassLibrary/
+    - name: Build Release
+      run: dotnet build ./src/GithubActionsPractice/ExampleClassLibrary/ -c Release
 
-    - name: Build and Publish NuGet Package
-      run: dotnet pack ./src/GithubActionsPractice/ExampleClassLibrary/ -c Release --output ./artifacts
+    - name: Create NuGet Package
+      run: dotnet pack ./src/GithubActionsPractice/ExampleClassLibrary/ --configuration Release --output ./artifacts
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
