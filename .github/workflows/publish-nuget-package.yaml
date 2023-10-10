@@ -18,4 +18,5 @@ jobs:
       uses: brandedoutcast/publish-nuget@v2
       with:
         PROJECT_FILE_PATH: ./src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj
+        NUGET_SOURCE: https://nuget.pkg.github.com/gnalvesteffer/index.json
         NUGET_KEY: ${{ secrets.GH_PAT }}
