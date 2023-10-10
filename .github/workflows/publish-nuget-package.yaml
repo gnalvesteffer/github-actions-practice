@@ -6,27 +6,15 @@ on:
       - main
 
 jobs:
-  build:
+  publish:
+    name: build, pack & publish
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Set up .NET SDK
-      uses: actions/setup-dotnet@v3
+    - name: Publish NuGet
+      uses: brandedoutcast/publish-nuget@v2
       with:
-        dotnet-version: '6.x'
-
-    - name: Build Release
-      run: dotnet build ./src/GithubActionsPractice/ExampleClassLibrary/ -c Release
-
-    - name: Create NuGet Package
-      run: dotnet pack ./src/GithubActionsPractice/ExampleClassLibrary/ -c Release --output ./artifacts
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.GH_PAT}}
-
-    - name: Publish NuGet Package
-      run: dotnet nuget push ./artifacts/*.nupkg --source https://nuget.pkg.github.com/gnalvesteffer/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.GH_PAT}}
+        PROJECT_FILE_PATH: ./src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj
