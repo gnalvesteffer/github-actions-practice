@@ -22,11 +22,11 @@ jobs:
       run: dotnet build ./src/GithubActionsPractice/ExampleClassLibrary/ -c Release
 
     - name: Create NuGet Package
-      run: dotnet pack ./src/GithubActionsPractice/ExampleClassLibrary/ --configuration Release --output ./artifacts
+      run: dotnet pack ./src/GithubActionsPractice/ExampleClassLibrary/ -c Release --output ./artifacts
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        NUGET_AUTH_TOKEN: ${{secrets.GH_PAT}}
 
     - name: Publish NuGet Package
       run: dotnet nuget push ./artifacts/*.nupkg --source https://nuget.pkg.github.com/gnalvesteffer/index.json
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        NUGET_AUTH_TOKEN: ${{secrets.GH_PAT}}
