@@ -12,8 +12,8 @@ To summarize:
 ### Versioning
 - The package's version string is automatically generated using the latest [tag](https://github.com/gnalvesteffer/github-actions-practice/tags) via [MinVer](https://github.com/adamralph/minver), referenced in the ExampleClassLibrary project.
 - Commits pushed to `main` will have its package version suffixed with `-prerelease-0.x`.
-- Releases will trigger a new publish for a release version.
+- Publishing a new release will trigger a NuGet Package publish as a release version.
 
-To create a release:
+#### To create a release
 - Create a new release via https://github.com/gnalvesteffer/github-actions-practice/releases/new and create a new version tag following the semantic versioning scheme (for example: "0.1.0")
 - The `Publish NuGet Package` workflow will trigger when the release is created and generate a release version of the package.
