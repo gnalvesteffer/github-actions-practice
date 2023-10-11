@@ -14,7 +14,7 @@ Practice repository for automating NuGet Package publishing via GitHub Actions.
 - Create a new release via [this link](https://github.com/gnalvesteffer/github-actions-practice/releases/new) and create a new version tag following the semantic versioning scheme (for example: "0.1.0").
 - The `Publish NuGet Package` workflow will trigger when the release is published and will generate a release version of the package.
 
-### GitHub Action Workflow
+## GitHub Action Workflow
 See the [Publish NuGet Package](https://github.com/gnalvesteffer/github-actions-practice/blob/main/.github/workflows/publish-nuget-package.yaml) workflow for reference.
 
 At a high-level the workflow:
@@ -24,5 +24,5 @@ At a high-level the workflow:
 - Builds the NuGet package using the project's build output
 - Publishes the NuGet package
 
-#### Variables & Secrets
+### Variables & Secrets
 Variables & secrets accessible to the workflow can be configured [here](https://github.com/gnalvesteffer/github-actions-practice/settings/secrets/actions). The workflow requires a `NUGET_API_KEY` secret to be defined, which should be a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) with permission to write/publish packages.
