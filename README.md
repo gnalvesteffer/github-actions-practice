@@ -25,4 +25,11 @@ At a high-level the workflow:
 - Publishes the NuGet package
 
 ### Variables & Secrets
-Variables & secrets accessible to the workflow can be configured [here](https://github.com/gnalvesteffer/github-actions-practice/settings/secrets/actions). The workflow requires a `NUGET_API_KEY` secret to be defined, which should be a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) with permission to write/publish packages.
+Variables & secrets accessible to the workflow can be configured [here](https://github.com/gnalvesteffer/github-actions-practice/settings/secrets/actions).
+The workflow requires a `NUGET_API_KEY` secret to be defined, which should be a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) with permission to write/publish packages.
+
+## Testing GitHub Actions locally
+To easily test Github Actions locally, you can use [act](https://github.com/nektos/act).
+
+Once _act_ is setup in your environment, you can run `act -s NUGET_API_KEY="YOUR_PAT_TOKEN_HERE"` (replace `YOUR_PAT_TOKEN_HERE` with the personal access token you created in the Variables & Secrets section).
+This will run the workflows in a Docker container on your machine, providing the benefit of a quicker feedback loop as you develop workflows.
