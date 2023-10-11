@@ -1,6 +1,5 @@
-# GitHub Actions Practice (Automated NuGet Package Publishing)
-
-This repository is for practicing GitHub Actions to automate the publishing of a NuGet Package.
+# GitHub Actions Practice
+Practice repository for automating NuGet Package publishing via GitHub Actions.
 
 ## Publishing NuGet Package
 - When a new commit is pushed to the `main` branch, the [Publish NuGet Package](https://github.com/gnalvesteffer/github-actions-practice/blob/main/.github/workflows/publish-nuget-package.yaml) workflow will automatically build and publish a **prerelease** NuGet package for the [ExampleClassLibrary](https://github.com/gnalvesteffer/github-actions-practice/tree/main/src/GithubActionsPractice/ExampleClassLibrary) project.
