@@ -14,6 +14,6 @@ To summarize:
 - Commits pushed to `main` will have its package version suffixed with `-prerelease-0.x`.
 - Publishing a new release will trigger a NuGet Package publish as a release version.
 
-#### To create a release
+#### Creating a Release package
 - Create a new release via https://github.com/gnalvesteffer/github-actions-practice/releases/new and create a new version tag following the semantic versioning scheme (for example: "0.1.0")
-- The `Publish NuGet Package` workflow will trigger when the release is created and generate a release version of the package.
+- The `Publish NuGet Package` workflow will trigger when the release is published, and will generate a release version of the package.
