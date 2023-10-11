@@ -7,24 +7,23 @@ on:
 
 jobs:
   publish:
-    name: build, pack & publish
+    name: Publish NuGet Package
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-    - uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '6.x'
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "6.x"
 
-    - name: Build Project
-      run: dotnet build ./src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release 
+      - name: Build Project
+        run: dotnet build ./src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release
 
-    - name: Build Nuget Package
-      run: dotnet pack ./src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release --no-build --output .
+      - name: Build NuGet Package
+        run: dotnet pack ./src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release --no-build --output ./artifacts
 
-    - name: Publish Nuget to GitHub registry
-      run: dotnet nuget push ./src/GithubActionsPractice/ExampleClassLibrary/bin/Release/*.nupkg --api-key ${{ secrets.GH_PAT }} --source https://nuget.pkg.github.com/gnalvesteffer/index.json --no-symbols
-      env:
-        GH_PAT: ${{ secrets.GH_PAT }}
+      - name: Publish NuGet Package to GitHub registry
+        run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --no-symbols -p:PackageVersion=${{ github.sha }}
+        env:
+          GH_PAT: ${{ secrets.NUGET_API_KEY }}
