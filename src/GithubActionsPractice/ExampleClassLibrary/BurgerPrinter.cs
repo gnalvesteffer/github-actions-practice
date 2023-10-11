@@ -43,8 +43,7 @@
                           ▓▓░░        ▓▓▒▒                        
                                                                   
                                                                   
-                                                                  
-            ");
+                                                                  ");
             Console.BackgroundColor = originalBackggoundColor;
             Console.ForegroundColor = originalForegroundColor;
         }
