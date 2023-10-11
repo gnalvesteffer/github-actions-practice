@@ -10,9 +10,9 @@ To summarize:
 - The NuGet package for the ExampleClassLibrary gets published, and is visible at https://github.com/gnalvesteffer/github-actions-practice/pkgs/nuget/gnalvesteffer_nugetpractice
 
 ### Versioning
-- The package's version string is automatically generated via the [MinVer](https://github.com/adamralph/minver) package, referenced in the ExampleClassLibrary project. 
-- The version string is generated based on the latest version tag.
-- Commits pushed to `main` will be suffixed with `-prerelease-0.x`.
+- The package's version string is automatically generated usin the latest tag via [MinVer](https://github.com/adamralph/minver), referenced in the ExampleClassLibrary project.
+- Commits pushed to `main` will have its package version suffixed with `-prerelease-0.x`.
+- Releases will trigger a new publish for a release version.
 
 To create a release:
 - Create a new release via https://github.com/gnalvesteffer/github-actions-practice/releases/new and create a new version tag following the semantic versioning scheme (for example: "0.1.0")
