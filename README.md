@@ -31,5 +31,5 @@ The workflow requires a `NUGET_API_KEY` secret to be defined, which should be a 
 ## Testing GitHub Actions locally
 To easily test Github Actions locally, you can use [act](https://github.com/nektos/act).
 
-Once _act_ is setup in your environment, you can run `act -s NUGET_API_KEY="YOUR_PAT_TOKEN_HERE"` (replace `YOUR_PAT_TOKEN_HERE` with the personal access token you created in the Variables & Secrets section).
+Once _act_ is setup in your environment, you can run `act -s NUGET_API_KEY="YOUR_PAT_TOKEN_HERE"` at the root of the repo (replace `YOUR_PAT_TOKEN_HERE` with the personal access token you created in the Variables & Secrets section).
 This will run the workflows in a Docker container on your machine, providing the benefit of a quicker feedback loop as you develop workflows.
