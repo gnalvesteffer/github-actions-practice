@@ -27,11 +27,6 @@ jobs:
       - name: Build Project
         run: dotnet build src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release
 
-  publish:
-    needs: build
-    name: Publish ExampleClassLibrary NuGet Package
-    runs-on: ubuntu-latest
-    steps:
       - name: Build NuGet Package
         run: dotnet pack src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release --no-build --output ./artifacts
 
