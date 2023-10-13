@@ -9,7 +9,7 @@
 		<Title>NuGet Practice</Title>
 		<Authors>gnalvesteffer</Authors>
 		<RepositoryUrl>https://github.com/gnalvesteffer/github-actions-practice</RepositoryUrl>
-		<MinVerDefaultPreReleaseIdentifiers>prerelease-0</MinVerDefaultPreReleaseIdentifiers>
+		<MinVerDefaultPreReleaseIdentifiers>prerelease</MinVerDefaultPreReleaseIdentifiers>
 	</PropertyGroup>
 
 	<ItemGroup>
