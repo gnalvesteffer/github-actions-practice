@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - './src/GithubActionsPractice/ExampleClassLibrary/**'    
+      - ./src/GithubActionsPractice/ExampleClassLibrary/**
   release:
     types: [published]
 
