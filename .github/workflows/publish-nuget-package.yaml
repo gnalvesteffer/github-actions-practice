@@ -12,7 +12,6 @@ on:
 
 jobs:
   build:
-    name: Build ExampleClassLibrary
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
