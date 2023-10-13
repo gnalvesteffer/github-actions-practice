@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - ./src/GithubActionsPractice/ExampleClassLibrary/**
+      - src/GithubActionsPractice/ExampleClassLibrary/**
   release:
     types: [published]
 
@@ -24,7 +24,7 @@ jobs:
           dotnet-version: "6.0.x"
 
       - name: Build Project
-        run: dotnet build ./src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release
+        run: dotnet build src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release
 
   publish:
     needs: build
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build NuGet Package
-        run: dotnet pack ./src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release --no-build --output ./artifacts
+        run: dotnet pack src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release --no-build --output ./artifacts
 
       - name: Publish NuGet Package to GitHub registry
         run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --no-symbols
