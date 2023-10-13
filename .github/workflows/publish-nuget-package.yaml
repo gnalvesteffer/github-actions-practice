@@ -8,6 +8,7 @@ on:
       - src/GithubActionsPractice/ExampleClassLibrary/**
   release:
     types: [published]
+  workflow_dispatch:
 
 jobs:
   build:
