@@ -7,7 +7,7 @@ Practice repository for automating NuGet Package publishing via GitHub Actions.
 
 ### Versioning
 - The package's version string is automatically generated using the latest [tag](https://github.com/gnalvesteffer/github-actions-practice/tags) via [MinVer](https://github.com/adamralph/minver), referenced in the ExampleClassLibrary project.
-- Commits pushed to `main` will have its package version suffixed with `-prerelease-0.x`.
+- Commits pushed to `main` will have its package version suffixed with `-prerelease.x`, where `x` is the prerelease build iteration.
 - Publishing a new release will trigger a NuGet Package publish as a release version.
 
 #### Creating a Release package
