@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -21,13 +21,10 @@ jobs:
 
       - uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: "6.0.x"
+          dotnet-version: "6.x"
 
-      - name: Build Project
-        run: dotnet build src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release
-
-      - name: Build NuGet Package
-        run: dotnet pack src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release --no-build --output ./artifacts
+      - name: Build Project & Package
+        run: dotnet build src/GithubActionsPractice/ExampleClassLibrary/ExampleClassLibrary.csproj --configuration Release --output ./artifacts
 
       - name: Publish NuGet Package to GitHub registry
         run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --no-symbols
