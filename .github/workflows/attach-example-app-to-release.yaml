@@ -21,7 +21,7 @@ jobs:
           dotnet-version: "6.x"
 
       - name: Build
-        run: dotnet publish src/GithubActionsPractice/ExampleConsoleApp/ExampleConsoleApp.csproj -c Release -o ./artifacts
+        run: dotnet build src/GithubActionsPractice/ExampleConsoleApp/ExampleConsoleApp.csproj -c Release -o ./artifacts
 
       - uses: vimtor/action-zip@v1.1
         with:
