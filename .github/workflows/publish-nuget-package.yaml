@@ -36,3 +36,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: ./artifacts/*.nupkg
+          tag_name: ${{ steps.tag.outputs.tag }}

@@ -32,3 +32,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: ./artifacts/ExampleConsoleApp.zip
+          tag_name: ${{ steps.tag.outputs.tag }}
