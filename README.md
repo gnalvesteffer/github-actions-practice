@@ -26,7 +26,6 @@ At a high-level the workflow:
 
 ### Variables & Secrets
 Variables & secrets accessible to the workflow can be configured [here](https://github.com/gnalvesteffer/github-actions-practice/settings/secrets/actions).
-The workflow requires a `NUGET_API_KEY` secret to be defined, which should be a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) with permission to write/publish packages.
 
 ## Testing GitHub Actions locally
 To easily test Github Actions locally, you can use [act](https://github.com/nektos/act).
