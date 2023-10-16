@@ -11,42 +11,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
+      - name: Check out code
+        uses: actions/checkout@v2
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '6.x' # Use the version of .NET you need
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "6.x" # Use the version of .NET you need
 
-    - name: Build .NET App
-      run: dotnet build src/GithubActionsPractice/ExampleConsoleApp/ExampleConsoleApp.csproj --configuration Release
+      - name: Build .NET App
+        run: dotnet build src/GithubActionsPractice/ExampleConsoleApp/ExampleConsoleApp.csproj --configuration Release
 
-    - name: Publish Artifacts
-      run: dotnet publish src/GithubActionsPractice/ExampleConsoleApp/ExampleConsoleApp.csproj -c Release -o ${{ runner.workspace }}/publish
+      - name: Publish Artifacts
+        run: dotnet publish src/GithubActionsPractice/ExampleConsoleApp/ExampleConsoleApp.csproj -c Release -o ${{ runner.workspace }}/publish
 
-    - name: Upload Release Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: release-artifact
-        path: ${{ runner.workspace }}/publish
+      - name: Upload Release Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: release-artifact
+          path: ${{ runner.workspace }}/publish
 
   attach:
     needs: build
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
+      - name: Check out code
+        uses: actions/checkout@v2
 
-    - name: Download Release Artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: release-artifact
-        path: ${{ runner.workspace }}/release-artifact
+      - name: Download Release Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: release-artifact
+          path: ${{ runner.workspace }}/release-artifact
 
-    - name: Attach Artifact to Release
-      run: |
-        gh release upload ${{ github.repository }} ${{ github.event.release.tag_name }} ${{ runner.workspace }}/release-artifact/*
-      env:
-        GH_TOKEN: ${{ secrets.NUGET_API_KEY }}
+      - name: Attach Artifact to Release
+        run: gh release upload ${{ github.repository }} ${{ github.event.release.tag_name }} ${{ runner.workspace }}/release-artifact/*
