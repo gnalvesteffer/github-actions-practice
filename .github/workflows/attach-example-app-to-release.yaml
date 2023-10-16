@@ -17,7 +17,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0' # Use the version of .NET you need
+        dotnet-version: '6.x' # Use the version of .NET you need
 
     - name: Build .NET App
       run: dotnet build src/GithubActionsPractice/ExampleConsoleApp/ExampleConsoleApp.csproj --configuration Release
