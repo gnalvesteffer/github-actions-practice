@@ -47,3 +47,5 @@ jobs:
     - name: Attach Artifact to Release
       run: |
         GITHUB_TOKEN=$GITHUB_TOKEN gh release upload ${{ github.repository }} ${{ github.ref }} ${{ runner.workspace }}/release-artifact/*
+      env:
+        GH_TOKEN: ${{ github.token }}
