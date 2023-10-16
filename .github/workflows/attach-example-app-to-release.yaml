@@ -25,7 +25,7 @@ jobs:
 
       - uses: vimtor/action-zip@v1.1
         with:
-          files: ./artifacts/*
+          files: ./artifacts
           dest: ./artifacts/ExampleConsoleApp.zip
 
       - name: Upload build to release

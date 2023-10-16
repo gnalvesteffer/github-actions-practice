@@ -30,3 +30,8 @@ jobs:
 
       - name: Publish NuGet Package to GitHub registry
         run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ github.token }} --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --no-symbols
+
+      - name: Upload package to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./artifacts/*.nupkg
