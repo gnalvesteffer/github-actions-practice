@@ -12,8 +12,8 @@ Practice repository for automating NuGet Package publishing via GitHub Actions.
 
 #### Creating a Release package
 - Create a new release via [this link](https://github.com/gnalvesteffer/github-actions-practice/releases/new) and create a new version tag following the semantic versioning scheme (for example: "0.1.0").
-- The `Publish NuGet Package` workflow will trigger when the release is published and will generate a release version of the package.
-- The [`Attach Example App To Release`](https://github.com/gnalvesteffer/github-actions-practice/blob/main/.github/workflows/attach-example-app-to-release.yaml) workflow will build the ExampleConsoleApp project and upload the artifacts to the release page.
+- The [Publish NuGet Package](https://github.com/gnalvesteffer/github-actions-practice/blob/main/.github/workflows/publish-nuget-package.yaml) workflow will trigger when the release is published and will generate a release version of the package.
+- The [Attach Example App To Release](https://github.com/gnalvesteffer/github-actions-practice/blob/main/.github/workflows/attach-example-app-to-release.yaml) workflow will build the ExampleConsoleApp project and upload the artifacts to the release page.
 
 ## GitHub Action Workflow
 See the [Publish NuGet Package](https://github.com/gnalvesteffer/github-actions-practice/blob/main/.github/workflows/publish-nuget-package.yaml) workflow for reference.
