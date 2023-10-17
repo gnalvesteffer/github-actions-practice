@@ -3,7 +3,7 @@ Practice repository for automating NuGet Package publishing via GitHub Actions.
 
 ## Publishing NuGet Package
 - When a commit containing changes to the [ExampleClassLibrary](https://github.com/gnalvesteffer/github-actions-practice/tree/main/src/GithubActionsPractice/ExampleClassLibrary) project is pushed to the `main` branch, the [Publish NuGet Package](https://github.com/gnalvesteffer/github-actions-practice/blob/main/.github/workflows/publish-nuget-package.yaml) workflow will automatically build and publish a **prerelease** NuGet package for it.
-- When a Release is published, the workflow will trigger and publish a release version of the NuGet package.
+- When a Release is published, the workflow will trigger and publish a release version of the NuGet package, and attach a build of the .nupkg and ExampleConsoleApp to the release.
 
 ### Versioning
 - The package's version string is automatically generated using the latest [tag](https://github.com/gnalvesteffer/github-actions-practice/tags) via [MinVer](https://github.com/adamralph/minver), referenced in the ExampleClassLibrary project.
